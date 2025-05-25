@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Set this to your GitHub repository name
-  base: '/WebsiteProjectDesktop',
+  // For GitHub Pages: set this to your repository name (e.g., '/my-repo')
+  // If deploying to username.github.io directly, keep as '/'
+  site: 'https://USERNAME.github.io',
+  base: '/REPOSITORY-NAME',
   // Other Astro configuration options
   outDir: './dist',
   build: {
