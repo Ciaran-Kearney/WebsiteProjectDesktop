@@ -1070,3 +1070,80 @@ h3, h4, .tag, .skill-item span {
 .dots-background {
   z-index: -10; /* Ensure dots stay in the background */
 }
+
+/* Additional Gear Border Styles */
+@media (max-width: 768px) {
+  .gear-border {
+    display: none !important; /* Hide on mobile to reduce clutter */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-gear {
+    transform: none !important;
+  }
+}
+
+/* Gear Border System */
+.gear-border {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  z-index: 1;
+  height: 100vh;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.gear-border-left {
+  left: 8px;
+}
+
+.gear-border-right {
+  right: 8px;
+}
+
+.mini-gear {
+  pointer-events: none;
+  transform-origin: center center;
+  will-change: transform;
+  flex-shrink: 0;
+}
+
+.mini-gear svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Responsive gear adjustments */
+@media (max-width: 768px) {
+  .gear {
+    opacity: 0.4 !important; /* Reduce gear opacity on mobile */
+  }
+
+  .gear-left {
+    left: -10px !important; /* Move gears slightly off-screen on mobile */
+  }
+
+  .gear-right {
+    right: -10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gear {
+    opacity: 0.2 !important; /* Further reduce on very small screens */
+    transform: scale(0.8) !important; /* Make gears smaller */
+  }
+}
+
+/* Hide gears for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gear {
+    opacity: 0.1 !important;
+    transform: none !important;
+  }
+}
