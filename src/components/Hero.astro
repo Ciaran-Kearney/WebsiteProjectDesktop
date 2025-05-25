@@ -1,0 +1,92 @@
+---
+// Hero component with typing animation
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Hi, I'm <span class="highlight">Ciarán</span></h1>
+      <p class="subtitle">I'm <span id="article">a</span> <span id="typed-text" class="highlight"></span><span class="cursor">&nbsp;</span></p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn primary">Contact me</a>
+        <a href="/CiaranKearney_CV.pdf" target="_blank" class="btn secondary">Download CV <span class="download-icon">📄</span></a>
+        <a href="https://www.linkedin.com/in/ciarán-kearney/" target="_blank" class="btn secondary">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const typedText = document.getElementById('typed-text');
+    const articleElement = document.getElementById('article');
+    const cursor = document.querySelector('.cursor');
+
+    // Array of objects with text and appropriate article
+    const textArray = [
+      { text: 'Mechanical Engineer', article: 'a' },
+      { text: 'Automation Engineer', article: 'an' },
+      { text: 'Senior Acoustic Consultant', article: 'a' },
+      { text: 'Project Engineer', article: 'a' },
+      { text: 'Quick Learner', article: 'a' },
+      { text: 'Creative Thinker', article: 'a' },
+      { text: 'Team Player', article: 'a' },
+      { text: 'Technical Problem Solver', article: 'a' },
+      { text: 'Continuous Learner', article: 'a' },
+      { text: 'ready to join your team!', article: '' }
+    ];
+
+    let arrayIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isComplete = false;
+
+    function updateArticle() {
+      const currentItem = textArray[arrayIndex];
+      articleElement.textContent = currentItem.article;
+    }
+
+    function typeWriter() {
+      const currentItem = textArray[arrayIndex];
+      const currentText = currentItem.text;
+
+      if (isDeleting && !isComplete) {
+        typedText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedText.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      cursor.classList.toggle('typing');
+
+      let typeSpeed = 70;
+      if (isDeleting) {
+        typeSpeed /= 2;
+      }
+
+      if (!isDeleting && charIndex === currentText.length) {
+        if (arrayIndex === textArray.length - 1) {
+          isComplete = true;
+          cursor.classList.add('hide');
+          return;
+        }
+        isDeleting = true;
+        typeSpeed = 1500;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        arrayIndex++;
+        if (arrayIndex >= textArray.length) {
+          arrayIndex = 0;
+        }
+        updateArticle(); // Update article when starting new text
+      }
+
+      setTimeout(typeWriter, typeSpeed);
+    }
+
+    // Initialize with first article
+    updateArticle();
+    setTimeout(typeWriter, 1000);
+  });
+</script>
