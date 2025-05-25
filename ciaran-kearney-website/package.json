@@ -1,0 +1,25 @@
+{
+  "name": "ciaran-kearney-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Ciarán Kearney's Website built with Astro",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [
+    "astro",
+    "portfolio",
+    "mechanical engineer"
+  ],
+  "dependencies": {
+    "astro": "^5.7.13",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  }
+}

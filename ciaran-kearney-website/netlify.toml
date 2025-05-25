@@ -1,0 +1,13 @@
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+[dev]
+  command = "bun run dev"
+  port = 4321
+  framework = "astro"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
