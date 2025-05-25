@@ -21,7 +21,6 @@ const { title, description = "Personal portfolio website for Ciarán Kearney, Me
   </head>
   <body>
     <div class="dots-background" id="dots-background"></div>
-    <div class="gears-container" id="gears-container"></div>
     <slot />
 
     <script is:inline>
@@ -112,99 +111,16 @@ const { title, description = "Personal portfolio website for Ciarán Kearney, Me
         animate();
       }
 
-      // Simple Gear Border System
-      class GearBorder {
-        constructor() {
-          this.gears = [];
-          this.isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          this.init();
-        }
+      // Simple CSS-only gear borders
+      function createGearBorders() {
+        const leftBorder = document.createElement('div');
+        const rightBorder = document.createElement('div');
 
-        init() {
-          this.createGearBorders();
-          if (!this.isReducedMotion) {
-            this.bindScrollEvents();
-          }
-        }
+        leftBorder.className = 'gear-border-left';
+        rightBorder.className = 'gear-border-right';
 
-        createGearBorders() {
-          // Create left border
-          this.createBorderGears('left');
-          // Create right border
-          this.createBorderGears('right');
-        }
-
-        createBorderGears(side) {
-          const container = document.createElement('div');
-          container.className = `gear-border gear-border-${side}`;
-
-          // Calculate how many gears we need based on viewport height
-          const gearSize = 24;
-          const spacing = 4;
-          const totalGearHeight = gearSize + spacing;
-          const gearsNeeded = Math.ceil((window.innerHeight + 500) / totalGearHeight); // Extra for scrolling
-
-          for (let i = 0; i < gearsNeeded; i++) {
-            const gear = this.createSimpleGear(gearSize, i);
-            container.appendChild(gear);
-            this.gears.push({
-              element: gear,
-              index: i,
-              side: side,
-              speed: (i % 2 === 0) ? 1 : -1, // Alternate rotation direction
-              rotation: 0
-            });
-          }
-
-          document.body.appendChild(container);
-        }
-
-        createSimpleGear(size, index) {
-          const gear = document.createElement('div');
-          gear.className = 'mini-gear';
-          gear.style.cssText = `
-            width: ${size}px;
-            height: ${size}px;
-            margin: 4px 0;
-            opacity: 0.5;
-            transform-origin: center;
-          `;
-
-          // Simple CSS-only gear icon
-          gear.innerHTML = `
-            <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none">
-              <path d="M12 1L14 7L20 7.5L14 8L12 14L10 8L4 7.5L10 7L12 1Z M12 17L14 19L20 19.5L14 20L12 23L10 20L4 19.5L10 19L12 17Z"
-                    fill="rgba(106, 93, 211, 0.7)"
-                    stroke="rgba(106, 93, 211, 0.9)"
-                    stroke-width="0.5"/>
-              <circle cx="12" cy="12" r="4" fill="rgba(15, 30, 64, 0.9)" stroke="rgba(106, 93, 211, 0.8)" stroke-width="1"/>
-            </svg>
-          `;
-
-          return gear;
-        }
-
-        bindScrollEvents() {
-          let ticking = false;
-          const updateGears = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollSpeed = scrollTop * 0.3; // Gentle rotation
-
-            this.gears.forEach((gear) => {
-              gear.rotation = scrollSpeed * gear.speed * 0.05;
-              gear.element.style.transform = `rotate(${gear.rotation}deg)`;
-            });
-
-            ticking = false;
-          };
-
-          window.addEventListener('scroll', () => {
-            if (!ticking) {
-              requestAnimationFrame(updateGears);
-              ticking = true;
-            }
-          }, { passive: true });
-        }
+        document.body.appendChild(leftBorder);
+        document.body.appendChild(rightBorder);
       }
 
       // Mobile menu toggle
@@ -255,8 +171,8 @@ const { title, description = "Personal portfolio website for Ciarán Kearney, Me
         initMobileMenu();
         initSectionAnimations();
 
-        // Initialize gear border system
-        new GearBorder();
+        // Initialize simple gear borders
+        createGearBorders();
       });
     </script>
   </body>
