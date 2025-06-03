@@ -1,0 +1,130 @@
+---
+// Certificates component
+---
+
+<section id="certificates" class="certificates-section">
+  <div class="container">
+    <h2 class="section-title">Certificates</h2>
+    <p class="section-subtitle">Professional Qualifications</p>
+    <div class="certificates-grid">
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <div class="certificate-icon">🔧</div>
+          <h3>Cognex Certification</h3>
+        </div>
+        <p class="certificate-description">In-Sight Vision Suite Spreadsheet Advanced</p>
+        <div class="certificate-tags">
+          <span class="tag">Vision Systems</span>
+          <span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <div class="certificate-icon">☁️</div>
+          <h3>Loftware Certification</h3>
+        </div>
+        <p class="certificate-description">Cloud Solutions Expert</p>
+        <div class="certificate-tags">
+          <span class="tag">Cloud Solutions</span>
+          <span class="tag">Enterprise Software</span>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <div class="certificate-icon">📝</div>
+          <h3>Technical Writing</h3>
+        </div>
+        <p class="certificate-description">Engineers Ireland Technical Report Writing</p>
+        <div class="certificate-tags">
+          <span class="tag">Technical Writing</span>
+          <span class="tag">Engineering</span>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <div class="certificate-icon">🛡️</div>
+          <h3>Safety Certification</h3>
+        </div>
+        <p class="certificate-description">Fás Safe Pass</p>
+        <div class="certificate-tags">
+          <span class="tag">Safety</span>
+          <span class="tag">Construction</span>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <div class="certificate-icon">🚗</div>
+          <h3>Driving License</h3>
+        </div>
+        <p class="certificate-description">Full Irish Driver's Licence</p>
+        <div class="certificate-tags">
+          <span class="tag">Transportation</span>
+          <span class="tag">Mobility</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .certificates-section {
+    padding: 4rem 0;
+  }
+
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .certificate-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.15);
+  }
+
+  .certificate-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .certificate-icon {
+    font-size: 1.5rem;
+    background: rgba(0, 180, 216, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  .certificate-description {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+
+  .certificate-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+  }
+</style> 
