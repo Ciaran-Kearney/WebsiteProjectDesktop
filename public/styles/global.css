@@ -17,7 +17,8 @@
   --darker-navy: #0a1123; /* Slightly lighter darker navy */
 
   /* Keep accent colors the same */
-  --purple: #6a5dd3;
+  /* --purple: #6a5dd3; */
+  --purple: #121212;
   --light-purple: #7969e1;
   --blue: #6eacf4;
   --light-blue: #7fb8f9;
