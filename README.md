@@ -1,31 +1,63 @@
 # Ciarán Kearney Portfolio Website
 
-A clean, modern portfolio website built with Astro.
+A modern, responsive portfolio website showcasing professional experience in engineering, automation, and acoustics. Built with Astro for optimal performance and maintainability.
+
+## Features
+
+- Dark mode with electric blue accents
+- Responsive design
+- Fast loading and optimized images
+- Sections for:
+  - Work Experience
+  - Skills
+  - Projects
+  - Certificates
+  - Contact
 
 ## Development
 
 ```bash
 # Install dependencies
-bun install
+npm install
 
 # Start development server
-bun run dev
+npm run dev
 
 # Build for production
-bun run build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Technologies
+
+- Astro v5.7
+- TypeScript
+- Sharp (image optimization)
+
+## Project Structure
+
+```
+├── public/          # Static assets
+├── src/
+│   ├── components/  # UI components
+│   ├── layouts/     # Page layouts
+│   └── pages/       # Route components
+└── package.json
 ```
 
 ## Deployment
 
-### Netlify (Recommended)
-1. Connect your repository to Netlify
-2. Deploy automatically with the included `netlify.toml` configuration
+This site can be deployed to any static hosting service:
 
-### GitHub Pages
-1. Build the site: `bun run build`
-2. Deploy the `dist` folder to your GitHub Pages repository
+1. Build the site:
+```bash
+npm run build
+```
 
-## Technologies
-- Astro
-- TypeScript
-- Sharp (image optimization)
+2. Deploy the `dist` folder to your hosting service
+
+## License
+
+Copyright © 2024 Ciarán Kearney. All rights reserved.

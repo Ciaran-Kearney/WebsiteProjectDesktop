@@ -1,8 +1,8 @@
 {
   "name": "ciaran-kearney-website",
   "type": "module",
-  "version": "1.0.0",
-  "description": "Ciarán Kearney's Website built with Astro",
+  "version": "2.0.0",
+  "description": "Ciarán Kearney's Portfolio Website - Professional Engineer",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "start": "astro dev",
@@ -13,7 +13,9 @@
   "keywords": [
     "astro",
     "portfolio",
-    "mechanical engineer"
+    "mechanical engineer",
+    "automation",
+    "acoustics"
   ],
   "dependencies": {
     "astro": "^5.7.13",
